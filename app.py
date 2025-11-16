@@ -79,3 +79,12 @@ def ping():
 if __name__ == '__main__':
     logger.info("API STARTED")
     app.run(host='0.0.0.0', port=5000, debug=False)
+
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "LLM Quiz API Live",
+        "endpoint": "/quiz",
+        "ping": "/ping",
+        "docs": "See GitHub repo"
+    }), 200
